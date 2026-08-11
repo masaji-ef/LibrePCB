@@ -20,8 +20,6 @@
 /*******************************************************************************
  *  Includes
  ******************************************************************************/
-#include "schematictab.h"
-
 #include "../../graphics/graphicslayer.h"
 #include "../../graphics/graphicslayerlist.h"
 #include "../../graphics/slintgraphicsview.h"
@@ -46,6 +44,7 @@
 #include "graphicsitems/sgi_symbolpin.h"
 #include "schematiceditor.h"
 #include "schematicgraphicsscene.h"
+#include "schematictab.h"
 
 #include <librepcb/core/attribute/attributetype.h>
 #include <librepcb/core/attribute/attributeunit.h>
@@ -706,6 +705,8 @@ void SchematicTab::trigger(ui::TabAction a) noexcept {
           Uuid::fromString(mProjectEditor.getUseIeee315Symbols()
                                ? "d16e1f44-16af-4773-a310-de370f744548"
                                : "a5995314-f535-45d4-8bd8-2d0b8a0dc42a"));
+      mTool = ui::EditorTool::Component;
+      onDerivedUiDataChanged.notify();
       break;
     }
     case ui::TabAction::ToolComponentInductor: {
@@ -714,6 +715,8 @@ void SchematicTab::trigger(ui::TabAction a) noexcept {
           Uuid::fromString(mProjectEditor.getUseIeee315Symbols()
                                ? "4245d515-6f6d-48cb-9958-a4ea23d0187f"
                                : "62a7598c-17fe-41cf-8fa1-4ed274c3adc2"));
+      mTool = ui::EditorTool::Component;
+      onDerivedUiDataChanged.notify();
       break;
     }
     case ui::TabAction::ToolComponentCapacitorBipolar: {
@@ -722,6 +725,8 @@ void SchematicTab::trigger(ui::TabAction a) noexcept {
           Uuid::fromString(mProjectEditor.getUseIeee315Symbols()
                                ? "6e639ff1-4e81-423b-9d0e-b28b35693a61"
                                : "8cd7b37f-e5fa-4af5-a8dd-d78830bba3af"));
+      mTool = ui::EditorTool::Component;
+      onDerivedUiDataChanged.notify();
       break;
     }
     case ui::TabAction::ToolComponentCapacitorUnipolar: {
@@ -730,18 +735,24 @@ void SchematicTab::trigger(ui::TabAction a) noexcept {
           Uuid::fromString(mProjectEditor.getUseIeee315Symbols()
                                ? "20a01a81-506e-4fee-9dc0-8b50e6537cd4"
                                : "5412add2-af9c-44b8-876d-a0fb7c201897"));
+      mTool = ui::EditorTool::Component;
+      onDerivedUiDataChanged.notify();
       break;
     }
     case ui::TabAction::ToolComponentGnd: {
       mFsm->processAddComponent(
           Uuid::fromString("8076f6be-bfab-4fc1-9772-5d54465dd7e1"),
           Uuid::fromString("f09ad258-595b-4ee9-a1fc-910804a203ae"));
+      mTool = ui::EditorTool::Component;
+      onDerivedUiDataChanged.notify();
       break;
     }
     case ui::TabAction::ToolComponentVcc: {
       mFsm->processAddComponent(
           Uuid::fromString("58c3c6cd-11eb-4557-aa3f-d3e05874afde"),
           Uuid::fromString("afb86b45-68ec-47b6-8d96-153d73567228"));
+      mTool = ui::EditorTool::Component;
+      onDerivedUiDataChanged.notify();
       break;
     }
     case ui::TabAction::ToolMeasure: {
@@ -783,6 +794,33 @@ bool SchematicTab::processSceneScrolled(
 bool SchematicTab::processSceneKeyPressed(
     const slint::language::KeyEvent& e) noexcept {
   mProjectEditor.setCurrentTab(this);
+
+  // PATCH
+  if (!e.modifiers.control && !e.modifiers.shift && !e.modifiers.alt &&
+      !e.modifiers.meta) {
+    // const std::string key = std::string(e.text);
+    const QString key = s2q(e.text);
+    if (key == "r") {
+      trigger(ui::TabAction::ToolComponentResistor);
+      return true;
+    } else if (key == "i") {
+      trigger(ui::TabAction::ToolComponentInductor);
+      return true;
+    } else if (key == "b") {
+      trigger(ui::TabAction::ToolComponentCapacitorBipolar);
+      return true;
+    } else if (key == "u") {
+      trigger(ui::TabAction::ToolComponentCapacitorUnipolar);
+      return true;
+    } else if (key == "g") {
+      trigger(ui::TabAction::ToolComponentGnd);
+      return true;
+    } else if (key == "v") {
+      trigger(ui::TabAction::ToolComponentVcc);
+      return true;
+    }
+  }
+
   return mView->keyPressed(e);
 }
 

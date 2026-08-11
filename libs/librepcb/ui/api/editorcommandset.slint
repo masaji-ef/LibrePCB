@@ -619,8 +619,8 @@ export global EditorCommandSet {
         icon: @image-url(""),
         text: "Rotate Counterclockwise",
         status-tip: "Rotate the selected object(s) counterclockwise",
-        shortcut: "R",
-        modifiers: { alt: false, control: false, shift: false, meta: false },
+        shortcut: "Ctrl+Shift+R",
+        modifiers: { alt: false, control: true, shift: true, meta: false },
         key: "r",
     };
 
@@ -709,8 +709,8 @@ export global EditorCommandSet {
         icon: @image-url("../../../font-awesome/svgs/solid/lock-open.svg"),
         text: "Unlock Placement",
         status-tip: "Unlock the placement of the selected object(s)",
-        shortcut: "Ctrl+U",
-        modifiers: { alt: false, control: true, shift: false, meta: false },
+        shortcut: "Ctrl+Shift+U",
+        modifiers: { alt: false, control: true, shift: true, meta: false },
         key: "u",
     };
 
@@ -889,8 +889,8 @@ export global EditorCommandSet {
         icon: @image-url("../../../font-awesome/svgs/solid/vector-square.svg"),
         text: "Draw Rectangle",
         status-tip: "Draw graphical rectangles",
-        shortcut: "G",
-        modifiers: { alt: false, control: false, shift: false, meta: false },
+        shortcut: "Ctrl+Shift+G",
+        modifiers: { alt: false, control: true, shift: true, meta: false },
         key: "g",
     };
 
@@ -949,8 +949,8 @@ export global EditorCommandSet {
         icon: @image-url(""),
         text: "Add Value",
         status-tip: "Add graphical text objects for '{{VALUE}}'",
-        shortcut: "V",
-        modifiers: { alt: false, control: false, shift: false, meta: false },
+        shortcut: "Ctrl+Shift+V",
+        modifiers: { alt: false, control: true, shift: true, meta: false },
         key: "v",
     };
 
@@ -969,8 +969,8 @@ export global EditorCommandSet {
         icon: @image-url(""),
         text: "Add Pin",
         status-tip: "Add symbol pins (electrical connections for schematics)",
-        shortcut: "I",
-        modifiers: { alt: false, control: false, shift: false, meta: false },
+        shortcut: "Ctrl+Shift+I",
+        modifiers: { alt: false, control: true, shift: true, meta: false },
         key: "i",
     };
 
@@ -1089,8 +1089,8 @@ export global EditorCommandSet {
         icon: @image-url(""),
         text: "Draw Bus",
         status-tip: "Draw buses to route several related nets with a single wire",
-        shortcut: "B",
-        modifiers: { alt: false, control: false, shift: false, meta: false },
+        shortcut: "Ctrl+Shift+B",
+        modifiers: { alt: false, control: true, shift: true, meta: false },
         key: "b",
     };
 
@@ -1129,8 +1129,8 @@ export global EditorCommandSet {
         icon: @image-url("../../../../img/via.svg"),
         text: "Add Via",
         status-tip: "Add plated through-hole vias",
-        shortcut: "V",
-        modifiers: { alt: false, control: false, shift: false, meta: false },
+        shortcut: "Ctrl+Shift+V",
+        modifiers: { alt: false, control: true, shift: true, meta: false },
         key: "v",
     };
 
@@ -1469,9 +1469,9 @@ export global EditorCommandSet {
         icon: @image-url("../../../../img/resistor-eu.svg"),
         text: "Resistor",
         status-tip: "Add standard component: Resistor",
-        shortcut: "",
+        shortcut: "R",
         modifiers: { alt: false, control: false, shift: false, meta: false },
-        key: "",
+        key: "r",
     };
 
     in property <EditorCommand> component-inductor: {
@@ -1479,9 +1479,9 @@ export global EditorCommandSet {
         icon: @image-url("../../../../img/inductor-eu.svg"),
         text: "Inductor",
         status-tip: "Add standard component: Inductor",
-        shortcut: "",
+        shortcut: "I",
         modifiers: { alt: false, control: false, shift: false, meta: false },
-        key: "",
+        key: "i",
     };
 
     in property <EditorCommand> component-capacitor-bipolar: {
@@ -1489,9 +1489,9 @@ export global EditorCommandSet {
         icon: @image-url("../../../../img/capacitor-bipolar-eu.svg"),
         text: "Bipolar Capacitor",
         status-tip: "Add standard component: Bipolar capacitor",
-        shortcut: "",
+        shortcut: "B",
         modifiers: { alt: false, control: false, shift: false, meta: false },
-        key: "",
+        key: "b",
     };
 
     in property <EditorCommand> component-capacitor-unipolar: {
@@ -1499,9 +1499,9 @@ export global EditorCommandSet {
         icon: @image-url("../../../../img/capacitor-unipolar-eu.svg"),
         text: "Unipolar Capacitor",
         status-tip: "Add standard component: Unipolar capacitor",
-        shortcut: "",
+        shortcut: "U",
         modifiers: { alt: false, control: false, shift: false, meta: false },
-        key: "",
+        key: "u",
     };
 
     in property <EditorCommand> component-gnd: {
@@ -1509,9 +1509,9 @@ export global EditorCommandSet {
         icon: @image-url("../../../../img/gnd.svg"),
         text: "GND Supply",
         status-tip: "Add standard component: GND supply",
-        shortcut: "",
+        shortcut: "G",
         modifiers: { alt: false, control: false, shift: false, meta: false },
-        key: "",
+        key: "g",
     };
 
     in property <EditorCommand> component-vcc: {
@@ -1519,9 +1519,9 @@ export global EditorCommandSet {
         icon: @image-url("../../../../img/vcc.svg"),
         text: "VCC Supply",
         status-tip: "Add standard component: VCC supply",
-        shortcut: "",
+        shortcut: "V",
         modifiers: { alt: false, control: false, shift: false, meta: false },
-        key: "",
+        key: "v",
     };
 
     in property <EditorCommand> dock-erc: {
