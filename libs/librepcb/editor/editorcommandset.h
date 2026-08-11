@@ -712,7 +712,7 @@ public:
       QT_TR_NOOP("Rotate the selected object(s) counterclockwise"),
       ":/img/actions/rotate_left.png",
       EditorCommand::Flags(),
-      {QKeySequence(Qt::Key_R)},
+      {QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_R)},
       &categoryModify,
   };
   EditorCommand rotateCw{
@@ -796,7 +796,7 @@ public:
       QT_TR_NOOP("Unlock the placement of the selected object(s)"),
       ":/fa/solid/lock-open.svg",
       EditorCommand::Flags(),
-      {QKeySequence(Qt::CTRL | Qt::Key_U)},
+      {QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_U)},
       &categoryModify,
   };
   EditorCommand setLineWidth{
@@ -978,7 +978,7 @@ public:
       QT_TR_NOOP("Draw graphical rectangles"),
       ":/fa/solid/vector-square.svg",
       EditorCommand::Flags(),
-      {QKeySequence(Qt::Key_G)},
+      {QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_G)},
       &categoryTools,
   };
   EditorCommand toolPolygon{
@@ -1032,7 +1032,7 @@ public:
       QT_TR_NOOP("Add graphical text objects for '{{VALUE}}'"),
       ":/img/actions/add_value.png",
       EditorCommand::Flags(),
-      {QKeySequence(Qt::Key_V)},
+      {QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_V)},
       &categoryTools,
   };
   EditorCommand toolImage{
@@ -1050,7 +1050,7 @@ public:
       QT_TR_NOOP("Add symbol pins (electrical connections for schematics)"),
       ":/img/actions/add_symbol_pin.png",
       EditorCommand::Flags(),
-      {QKeySequence(Qt::Key_I)},
+      {QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_I)},
       &categoryTools,
   };
   EditorCommand toolPadTht{
@@ -1159,7 +1159,7 @@ public:
       QT_TR_NOOP("Draw buses to route several related nets with a single wire"),
       ":/img/actions/draw_bus.png",
       EditorCommand::Flags(),
-      {QKeySequence(Qt::Key_B)},
+      {QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_B)},
       &categoryTools,
   };
   EditorCommand toolLabel{
@@ -1195,7 +1195,7 @@ public:
       QT_TR_NOOP("Add plated through-hole vias"),
       ":/img/via.svg",
       EditorCommand::Flags(),
-      {QKeySequence(Qt::Key_V)},
+      {QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_V)},
       &categoryTools,
   };
   EditorCommand toolPlane{
@@ -1509,7 +1509,7 @@ public:
       QT_TR_NOOP("Add standard component: Resistor"),
       ":/img/resistor-eu.svg",
       EditorCommand::Flags(),
-      {},
+      {QKeySequence(Qt::Key_R)},
       &categoryComponents,
   };
   EditorCommand componentInductor{
@@ -1518,7 +1518,7 @@ public:
       QT_TR_NOOP("Add standard component: Inductor"),
       ":/img/inductor-eu.svg",
       EditorCommand::Flags(),
-      {},
+      {QKeySequence(Qt::Key_I)},
       &categoryComponents,
   };
   EditorCommand componentCapacitorBipolar{
@@ -1527,7 +1527,7 @@ public:
       QT_TR_NOOP("Add standard component: Bipolar capacitor"),
       ":/img/capacitor-bipolar-eu.svg",
       EditorCommand::Flags(),
-      {},
+      {QKeySequence(Qt::Key_B)},
       &categoryComponents,
   };
   EditorCommand componentCapacitorUnipolar{
@@ -1536,7 +1536,7 @@ public:
       QT_TR_NOOP("Add standard component: Unipolar capacitor"),
       ":/img/capacitor-unipolar-eu.svg",
       EditorCommand::Flags(),
-      {},
+      {QKeySequence(Qt::Key_U)},
       &categoryComponents,
   };
   EditorCommand componentGnd{
@@ -1545,7 +1545,7 @@ public:
       QT_TR_NOOP("Add standard component: GND supply"),
       ":/img/gnd.svg",
       EditorCommand::Flags(),
-      {},
+      {QKeySequence(Qt::Key_G)},
       &categoryComponents,
   };
   EditorCommand componentVcc{
@@ -1554,7 +1554,7 @@ public:
       QT_TR_NOOP("Add standard component: VCC supply"),
       ":/img/vcc.svg",
       EditorCommand::Flags(),
-      {},
+      {QKeySequence(Qt::Key_V)},
       &categoryComponents,
   };
 

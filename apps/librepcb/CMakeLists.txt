@@ -62,3 +62,4 @@ if(WIN32)
   )
   target_sources(librepcb PUBLIC "${WINDOWS_APP_ICON_RESOURCE}")
 endif()
+# librepcb - patched
